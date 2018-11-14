@@ -1,0 +1,33 @@
+﻿@model DetailViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+<div>
+    <img src="~/images/parks/@(Model.Park.ParkCode).jpg" alt="@Model.Park.ParkName Photo">
+
+        <h1>@Model.Park.ParkName</h1>
+        <p>@Model.Park.State</p>
+        <p>@Model.Park.Acreage</p>
+        <p>@Model.Park.ElevationInFeet</p>
+        <p>@Model.Park.MilesOfTrail</p>
+        <p>@Model.Park.NumberOfCampsites</p>
+        <p>@Model.Park.Climate</p>
+        <p>@Model.Park.YearFounded</p>
+        <p>@Model.Park.AnnualVistorCount</p>
+        <p>@Model.Park.InspirationalQuote</p>
+        <p>@Model.Park.InspirationalQuoteSource</p>
+        <p>@Model.Park.ParkDescription</p>
+        <p>@Model.Park.EntryFee</p>
+        <p>@Model.Park.NumberOfAnimalSpecies</p>
+</div>
+<div>
+    @foreach (var weather in Model.Weathers)
+    {
+        <img src="~/images/weather/@(weather.Forecast).png" alt="@weather.Forecast Photo">
+        <p>@weather.Low</p>
+        <p>@weather.High</p>
+        <p>@weather.Forecast</p>
+    }
+</div>

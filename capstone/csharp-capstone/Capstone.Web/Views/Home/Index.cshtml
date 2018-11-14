@@ -1,4 +1,19 @@
-﻿@{
+﻿@model DetailViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
+
+    @foreach (Park park in Model.Parks)
+    {
+        <div>
+            <a asp-controller="Home" asp-action="Detail" asp-route-parkCode="@(park.ParkCode)">
+                <img src="~/images/parks/@(park.ParkCode).jpg" alt="@park.ParkName Photo">
+            </a>
+
+            <div>
+                <p>@park.ParkName</p>
+                <p>@park.ParkDescription</p>
+            </div>
+        </div>
+    }
 
