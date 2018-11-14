@@ -26,8 +26,8 @@
     @foreach (var weather in Model.Weathers)
     {
         <img src="~/images/weather/@(weather.Forecast).png" alt="@weather.Forecast Photo">
-        <p>@weather.Low</p>
-        <p>@weather.High</p>
-        <p>@weather.Forecast</p>
+        <p>High @weather.High</p>
+        <p>Low @weather.Low</p>
+        <p>@weather.Recommendation</p>
     }
 </div>

@@ -8,5 +8,7 @@ namespace Capstone.Web.DAL
 {
     public interface ISurveyDAL
     {
+        bool SavePost(Survey model);
+        Dictionary<string, string> GetParks();
     }
 }

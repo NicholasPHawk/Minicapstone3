@@ -35,6 +35,11 @@ namespace Capstone.Web.Controllers
                 Weathers = _parkDAL.GetAllWeather(parkCode)
             };
 
+            foreach (Weather weather in model.Weathers)
+            {
+                weather.Recommendation = weather.GetRecommendation(weather.Forecast, weather.Low, weather.High);
+            }
+
             return View(model);
         }
 
@@ -42,6 +47,15 @@ namespace Capstone.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public void TemperatureConversion(DetailViewModel model)
+        {
+            foreach (Weather weather in model.Weathers)
+            {
+                weather.High = (int)((weather.High - 32) / 1.8);
+                weather.Low = (int)((weather.Low - 32) / 1.8);
+            }
         }
     }
 }

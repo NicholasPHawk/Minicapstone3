@@ -31,8 +31,14 @@ namespace Capstone.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+            });
+
             services.AddScoped<IParkDAL>(x => new ParkDAL(Configuration.GetConnectionString("NpGeekDb")));
-            //services.AddScoped<ISurveyDAL>(x => new SurveyDAL(Configuration.GetConnectionString("NpGeekDb")));
+            services.AddScoped<ISurveyDAL>(x => new SurveyDAL(Configuration.GetConnectionString("NpGeekDb")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -51,6 +57,7 @@ namespace Capstone.Web
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

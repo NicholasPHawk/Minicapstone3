@@ -1,0 +1,42 @@
+﻿@model Survey
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form asp-controller="Survey" asp-action="SaveSurvey" method="post">
+    <div>
+        <div>
+            <p>
+                Favorite National Park:
+                <select asp-for="ParkCode">
+                    @{
+                        foreach (KeyValuePair<string, string> kvp in Model.ParksDictionary)
+                        {
+                            <option value="@(kvp.Key)">
+                                @(kvp.Value)
+                            </option>
+                        }
+                    }
+                </select>
+            </p>
+        </div>
+        <div>
+            <label asp-for="EmailAddress">Your email:</label>
+            <input asp-for="EmailAddress" />
+        </div>
+        <div>
+            <label asp-for="State">State of residence</label>
+            <select asp-for="State" asp-items="@(Model.StateList)"></select>
+        </div>
+        <div>
+            <p>
+                Activity Level:        @Html.RadioButton("ActivityLevel", "Inactive")Inactive
+                @Html.RadioButton("ActivityLevel", "Sedentary")Sedentary
+                @Html.RadioButton("ActivityLevel", "Active")Active
+                @Html.RadioButton("ActivityLevel", "Extremely Active")Extremely Active
+            </p>
+        </div>
+        <button type="submit">Search</button>
+    </div>
+</form>
+
