@@ -28,7 +28,7 @@ namespace Capstone.Web.Controllers
             return View(model);
         }
 
-        public IActionResult Detail(string parkCode)
+        public IActionResult Detail(string parkCode, string unit)
         {
             DetailViewModel model = new DetailViewModel
             {
@@ -41,10 +41,12 @@ namespace Capstone.Web.Controllers
                 weather.Recommendation = weather.GetRecommendation(weather.Forecast, weather.Low, weather.High);
             }
 
-            //if (HttpContext.Session.Get<ConvertTemp>("Shopping_Cart") == true)
-            //{
+            GetActiveUnit(model, unit);
 
-            //}
+            if (model.TempUnit == "c")
+            {
+                TemperatureConversion(model);
+            }
 
             return View(model);
         }
@@ -62,6 +64,27 @@ namespace Capstone.Web.Controllers
                 weather.High = (int)((weather.High - 32) / 1.8);
                 weather.Low = (int)((weather.Low - 32) / 1.8);
             }
+        }
+
+        private DetailViewModel GetActiveUnit(DetailViewModel model, string unit)
+        {
+            if (HttpContext.Session.Get<String>("Temp_Unit") == null)
+            {
+                SetUnit(unit);
+            }
+            else if (unit != null)
+            {
+                SetUnit(unit);
+            }
+            model.TempUnit = HttpContext.Session.Get<String>("Temp_Unit");
+
+
+            return model;
+        }
+
+            private void SetUnit(string unit)
+        {
+            HttpContext.Session.Set("Temp_Unit", unit);
         }
     }
 }

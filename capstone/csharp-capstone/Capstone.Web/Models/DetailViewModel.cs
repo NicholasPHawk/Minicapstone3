@@ -11,5 +11,7 @@ namespace Capstone.Web.Models
         public Weather Weather { get; set; }
         public IList<Park> Parks { get;set; }
         public IList<Weather> Weathers { get; set; }
+
+        public string TempUnit { get; set; }
     }
 }

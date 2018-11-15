@@ -30,4 +30,16 @@
         <p>Low @weather.Low</p>
         <p>@weather.Recommendation</p>
     }
+    @if (Model.TempUnit == "f" || Model.TempUnit == null)
+    {
+        <form asp-controller="Home" asp-action="Detail" asp-route-parkCode="@(Model.Park.ParkCode)" asp-route-unit="c">
+            <button type="submit">Convert to Celcius</button>
+        </form>
+    }
+    else
+    {
+        <form asp-controller="Home" asp-action="Detail" asp-route-parkCode="@(Model.Park.ParkCode)" asp-route-unit="f">
+            <button type="submit">Convert to Farenheit</button>
+        </form>
+    }
 </div>
