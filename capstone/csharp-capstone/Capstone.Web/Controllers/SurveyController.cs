@@ -33,6 +33,11 @@ namespace Capstone.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SaveSurvey(Survey model)
         {
+            if (!ModelState.IsValid )
+            {
+                return RedirectToAction("Index", model);
+            }
+
             try
             {
                 // TODO: Add insert logic here

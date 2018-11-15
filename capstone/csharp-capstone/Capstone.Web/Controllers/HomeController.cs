@@ -78,7 +78,6 @@ namespace Capstone.Web.Controllers
             }
             model.TempUnit = HttpContext.Session.Get<String>("Temp_Unit");
 
-
             return model;
         }
 

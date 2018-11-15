@@ -6,8 +6,6 @@
 <form asp-controller="Survey" asp-action="SaveSurvey" method="post">
     <div>
         <div>
-            <span asp-validation-for="ParkCode"></span>
-            <p>
                 Favorite National Park:
                 <select asp-for="ParkCode">
                     @{
@@ -19,26 +17,24 @@
                         }
                     }
                 </select>
-            </p>
+            <span asp-validation-for="ParkCode"></span>
         </div>
         <div>
-            <p><span asp-validation-for="EmailAddress"></span></p>
-            <p><label asp-for="EmailAddress">Your email:</label>
-            <input asp-for="EmailAddress" /></p>
+            <label asp-for="EmailAddress">Your email:</label>
+            <input asp-for="EmailAddress" />
+            <span asp-validation-for="EmailAddress"></span>
         </div>
         <div>
-            <p><span asp-validation-for="State"></span></p>
-            <p><label asp-for="State">State of residence</label>
-            <select asp-for="State" asp-items="@(Model.StateList)"></select></p>
+            <label asp-for="State">State of residence</label>
+            <select asp-for="State" asp-items="@(Model.StateList)"></select>
+            <span asp-validation-for="State"></span>
         </div>
         <div>
-            <p><span asp-validation-for="ActivityLevel"></span></p>
-            <p>
                 Activity Level:        @Html.RadioButton("ActivityLevel", "Inactive")Inactive
                 @Html.RadioButton("ActivityLevel", "Sedentary")Sedentary
                 @Html.RadioButton("ActivityLevel", "Active")Active
                 @Html.RadioButton("ActivityLevel", "Extremely Active")Extremely Active
-            </p>
+            <span asp-validation-for="ActivityLevel"></span>
         </div>
         <button type="submit">Search</button>
     </div>
