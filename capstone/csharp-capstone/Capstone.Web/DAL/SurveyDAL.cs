@@ -18,8 +18,6 @@ namespace Capstone.Web.DAL
 
         public bool SavePost(Survey model)
         {
-            bool saved = false;
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -33,17 +31,16 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@State", model.State);
                     cmd.Parameters.AddWithValue("@ActivityLevel", model.ActivityLevel);
 
-                    cmd.ExecuteNonQuery();
-                }
+                    int rowsAffected = cmd.ExecuteNonQuery();
 
-                saved = true;
+                    return (rowsAffected > 0);
+                }
+   
             }
             catch (Exception ex)
             {
                 throw;
             }
-
-            return saved;
         }
 
         public Dictionary<string, string> GetParks()
