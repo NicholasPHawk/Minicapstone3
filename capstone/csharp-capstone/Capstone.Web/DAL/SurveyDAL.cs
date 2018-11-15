@@ -79,5 +79,43 @@ namespace Capstone.Web.DAL
 
             return parks;
         }
+
+        public IList<FavoriteParksVM> GetFavoriteParks()
+        {
+            IList<FavoriteParksVM> parks = new List<FavoriteParksVM>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT p.parkCode, p.parkName, Count(s.surveyId) AS surveyCount FROM park p " +
+                                                    "JOIN survey_result s ON p.parkCode = s.parkCode " +
+                                                    "GROUP BY p.parkCode, p.parkName " +
+                                                    "ORDER BY surveyCount DESC, p.parkName", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        FavoriteParksVM park = new FavoriteParksVM
+                        {
+                            ParkCode = Convert.ToString(reader["parkCode"]),
+                            ParkName = Convert.ToString(reader["parkName"]),
+                            SurveyCount = Convert.ToInt32(reader["surveyCount"]),
+                        };
+
+                        parks.Add(park);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+
+            return parks;
+        }
     }
 }

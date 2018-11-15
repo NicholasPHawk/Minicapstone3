@@ -1,7 +1,21 @@
-﻿
+﻿@model IList<FavoriteParksVM>
 @{
     ViewData["Title"] = "FavoriteParks";
 }
 
-<h2>FavoriteParks</h2>
+<h2>Favorite Parks</h2>
 
+@foreach (FavoriteParksVM park in Model)
+{
+    if (park.SurveyCount >= 1)
+    {
+        <div>
+            <div>
+                <a asp-controller="Home" asp-action="Detail" asp-route-parkCode="@(park.ParkCode)">
+                    <img src="~/images/parks/@(park.ParkCode).jpg" alt="@park.ParkName Photo">
+                </a>
+                <p>@(park.ParkName)     Survey Count: @(park.SurveyCount)</p>
+            </div>
+        </div>
+    }
+}

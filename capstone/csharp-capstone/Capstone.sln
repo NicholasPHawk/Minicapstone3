@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capstone.Web", "Capstone.Web\Capstone.Web.csproj", "{0E401DF9-2658-49EA-A871-8410D1E8D34A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capstrone.Web.Test.Integration", "Capstrone.Wen.Test.Integration\Capstrone.Web.Test.Integration.csproj", "{756F7AA1-E7BC-4781-8AC7-DB725A55955E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capstone.Web.Test.Integration", "Capstrone.Wen.Test.Integration\Capstone.Web.Test.Integration.csproj", "{756F7AA1-E7BC-4781-8AC7-DB725A55955E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

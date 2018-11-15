@@ -10,5 +10,6 @@ namespace Capstone.Web.DAL
     {
         bool SavePost(Survey model);
         Dictionary<string, string> GetParks();
+        IList<FavoriteParksVM> GetFavoriteParks();
     }
 }

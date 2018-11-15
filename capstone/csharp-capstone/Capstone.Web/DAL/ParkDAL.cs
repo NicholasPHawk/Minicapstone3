@@ -21,11 +21,6 @@ namespace Capstone.Web.DAL
             return GetAllParks().FirstOrDefault(p => p.ParkCode == parkCode);
         }
 
-        //public Weather GetWeather(string parkCode)
-        //{
-        //    return GetAllWeather().FirstOrDefault(p => p.ParkCode == parkCode);
-        //}
-
         public IList<Park> GetAllParks()
         {
             IList<Park> parks = new List<Park>();

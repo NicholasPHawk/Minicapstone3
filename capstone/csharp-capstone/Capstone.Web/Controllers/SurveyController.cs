@@ -47,7 +47,9 @@ namespace Capstone.Web.Controllers
 
         public ActionResult FavoriteParks()
         {
-            return View();
+            IList<FavoriteParksVM> model = _surveyDAL.GetFavoriteParks();
+
+            return View(model);
         }
     }
 }

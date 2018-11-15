@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Capstone.Web.Models;
 using Capstone.Web.DAL;
+using Capstone.Web.Extensions;
 
 namespace Capstone.Web.Controllers
 {
@@ -39,6 +40,11 @@ namespace Capstone.Web.Controllers
             {
                 weather.Recommendation = weather.GetRecommendation(weather.Forecast, weather.Low, weather.High);
             }
+
+            //if (HttpContext.Session.Get<ConvertTemp>("Shopping_Cart") == true)
+            //{
+
+            //}
 
             return View(model);
         }
