@@ -9,13 +9,12 @@
 {
     if (park.SurveyCount >= 1)
     {
-        <div>
-            <div>
+            <div class="park-list">
                 <a asp-controller="Home" asp-action="Detail" asp-route-parkCode="@(park.ParkCode)">
-                    <img src="~/images/parks/@(park.ParkCode).jpg" alt="@park.ParkName Photo">
+                    <img src="~/images/parks/@(park.ParkCode).jpg" class="list-image" alt="@park.ParkName Photo">
                 </a>
-                <p>@(park.ParkName)     Survey Count: @(park.SurveyCount)</p>
+                <p class="favorite-park-head">@(park.ParkName)</p>
+                <p class="favorite-park-content">Survey Count: @(park.SurveyCount)</p>
             </div>
-        </div>
     }
 }
