@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <td>Number of campsites:</td>
-            <td>@(Model.Park.NumberOfCampsites)</p></td>
+            <td>@(Model.Park.NumberOfCampsites)</td>
         </tr>
         <tr>
             <td>Year founded:</td>
@@ -60,14 +60,24 @@
 </section>
 <section>
     <div class="weather-box">
-        @foreach (var weather in Model.Weathers)
-        {
-        <div class="weather-day">
-            <img src="~/images/weather/@(weather.Forecast).png" style="max-width: 60%" alt="@weather.Forecast Photo">
-            <p style="margin-top:30px">High @weather.High</p>
-            <p>Low @weather.Low</p>
-            <p>@weather.Recommendation</p>
+        <div class="weather-today">
+            <p id="today-header">Today</p>
+            <img src="~/images/weather/@(Model.Weathers[0].Forecast).png" id="today-image" alt="@(Model.Weathers[0].Forecast) Photo">
+            <div class="today-HiLo">
+                <p>High @(Model.Weathers[0].High)</p>
+                <p>Low @(Model.Weathers[0].Low)</p>
+            </div>
+            <p id="recommendation">@(Model.Weathers[0].Recommendation)</p>
         </div>
+        @for (int i = 1; i < Model.Weathers.Count; i++)
+        {
+            <div class="weather-day">
+                <img src="~/images/weather/@(Model.Weathers[i].Forecast).png" id="day-image" alt="@(Model.Weathers[i].Forecast) Photo">
+                <div class="day-HiLo">
+                    <p>High @(Model.Weathers[i].High)</p>
+                    <p>Low @(Model.Weathers[i].Low)</p>
+                </div>
+            </div>
         }
     </div>
     @if (Model.TempUnit == "f" || Model.TempUnit == null)

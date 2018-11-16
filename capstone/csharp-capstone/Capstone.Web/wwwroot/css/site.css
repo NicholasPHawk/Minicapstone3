@@ -1,7 +1,7 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
+    padding-top: 150px;
     padding-bottom: 20px;
 }
 
@@ -45,12 +45,11 @@ body {
 
 .container-survey {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    /*grid-template-columns: 1fr 2fr;*/
     /*grid-template-rows: 1fr 2fr;*/
     /*display: flex;
     justify-content: space-between;*/
 }
-
 label, select {
     margin-bottom: 5px;
     margin-top: 5px;
@@ -60,14 +59,19 @@ label, select {
 }
 
 .navbar {
-    margin-top: 150px;
-    z-index:1;
+    margin-top: 100px;
+    z-index: 1;
+}
+
+.logo-box {
+    width: 100%;
+    z-index: 1;
+    background-color: white;
 }
 
 .logo {
     top: 0;
     max-height: 100px;
-    background-color:white;
 }
 .park-list {
     display: flex;
@@ -135,9 +139,50 @@ label, select {
 .weather-box{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
-.weather-day{
+.weather-today{
     display: flex;
     flex-direction: column;
+}
+
+.weather-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.today-HiLo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#today-header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#recommendation{
+    margin-top: 10px;
+}
+
+#today-image {
+    width: 100%
+}
+
+#day-image {
+    max-width: 60%;
+    width: 80%
+}
+
+.day-HiLo {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: bold;
 }
