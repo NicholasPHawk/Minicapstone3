@@ -35,3 +35,76 @@ body {
         display: none;
     }
 }
+
+.park-list {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    background: lightskyblue;
+    border-radius: 25px;
+}
+
+.list-image {
+    max-width: 300px;
+    border-radius: 25px;
+}
+
+.park-head {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.park-info {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-detail {
+    width: 100%;
+}
+
+.favorite-park-head {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin: 80px 80px 80px 80px;
+}
+
+.favorite-park-content {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 80px 80px 80px 80px;
+}
+
+.park-detail {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#park-description {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+#quote {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: forestgreen;
+}
+
+.weather-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.weather-day{
+    display: flex;
+    flex-direction: column;
+}

@@ -4,32 +4,72 @@
 }
 
 
-<div>
-    <img src="~/images/parks/@(Model.Park.ParkCode).jpg" alt="@Model.Park.ParkName Photo">
+<section>
+    <div class="park-detail">
+    <img src="~/images/parks/@(Model.Park.ParkCode).jpg" class="image-detail" alt="@Model.Park.ParkName Photo">
+    <h1>@Model.Park.ParkName</h1>
 
-        <h1>@Model.Park.ParkName</h1>
-        <p>@Model.Park.State</p>
-        <p>@Model.Park.Acreage</p>
-        <p>@Model.Park.ElevationInFeet</p>
-        <p>@Model.Park.MilesOfTrail</p>
-        <p>@Model.Park.NumberOfCampsites</p>
-        <p>@Model.Park.Climate</p>
-        <p>@Model.Park.YearFounded</p>
-        <p>@Model.Park.AnnualVistorCount</p>
-        <p>@Model.Park.InspirationalQuote</p>
-        <p>@Model.Park.InspirationalQuoteSource</p>
-        <p>@Model.Park.ParkDescription</p>
-        <p>@Model.Park.EntryFee</p>
-        <p>@Model.Park.NumberOfAnimalSpecies</p>
+    <p id="park-description">@(Model.Park.ParkDescription)</p>
+    <table class="table-striped">
+        <tr>
+            <td>State:</td>
+            <td>@(Model.Park.State)</td>
+        </tr>
+        <tr>
+            <td>Acreage:</td>
+            <td>@(Model.Park.Acreage)</td>
+        </tr>
+        <tr>
+            <td>Elevation:</td>
+            <td>@(Model.Park.ElevationInFeet)ft</td>
+        </tr>
+        <tr>
+            <td>Miles of trail:</td>
+            <td>@(Model.Park.MilesOfTrail)</td>
+        </tr>
+        <tr>
+            <td>Number of animal species:</td>
+            <td>@(Model.Park.NumberOfAnimalSpecies)</td>
+        </tr>
+        <tr>
+            <td>Climate:</td>
+            <td>@(Model.Park.Climate)</td>
+        </tr>
+        <tr>
+            <td>Number of campsites:</td>
+            <td>@(Model.Park.NumberOfCampsites)</p></td>
+        </tr>
+        <tr>
+            <td>Year founded:</td>
+            <td>@(Model.Park.YearFounded)</td>
+        </tr>
+        <tr>
+            <td>Annual visitor count:</td>
+            <td>@(Model.Park.AnnualVistorCount)</td>
+        </tr>
+        <tr>
+            <td>Entry fee:</td>
+            <td>$@(Model.Park.EntryFee)</td>
+        </tr>
+    </table>
+    <div>
+        <p id="quote">@(Model.Park.InspirationalQuote)</p>
+        <p id="quote">-@(Model.Park.InspirationalQuoteSource)</p>
+    </div>
 </div>
-<div>
-    @foreach (var weather in Model.Weathers)
-    {
-        <img src="~/images/weather/@(weather.Forecast).png" alt="@weather.Forecast Photo">
-        <p>High @weather.High</p>
-        <p>Low @weather.Low</p>
-        <p>@weather.Recommendation</p>
-    }
+</section>
+<section>
+    <div class="weather-box">
+        @foreach (var weather in Model.Weathers)
+        {
+        <div class="weather-day">
+            <img src="~/images/weather/@(weather.Forecast).png" style="max-width: 60%" alt="@weather.Forecast Photo">
+            <p style="margin-top:30px">High @weather.High</p>
+            <p>Low @weather.Low</p>
+            <p>@weather.Recommendation</p>
+        </div>
+        }
+    </div>
     @if (Model.TempUnit == "f" || Model.TempUnit == null)
     {
         <form asp-controller="Home" asp-action="Detail" asp-route-parkCode="@(Model.Park.ParkCode)" asp-route-unit="c">
@@ -42,4 +82,4 @@
             <button type="submit">Convert to Farenheit</button>
         </form>
     }
-</div>
+</section>
