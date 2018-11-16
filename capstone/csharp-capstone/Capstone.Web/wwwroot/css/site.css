@@ -35,3 +35,36 @@ body {
         display: none;
     }
 }
+
+.button {
+    border-radius: 20px;
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.container {
+    /*display: grid;
+    grid-template-columns: 1fr 2fr;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+label,select{
+    margin-bottom: 5px;
+    width: 180px;
+    clear: left;
+    text-align: left;
+}
+
+.navbar {
+    margin-top: 100px;
+}
+
+.logo {
+    top: 0;
+    position: fixed;
+    max-height: 100px;
+    background-color:white;
+}

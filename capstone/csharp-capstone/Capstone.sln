@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capstone.Web", "Capstone.Web\Capstone.Web.csproj", "{0E401DF9-2658-49EA-A871-8410D1E8D34A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capstone.Web.Integration.Tests", "Capstone.Web.Integration.Tests\Capstone.Web.Integration.Tests.csproj", "{D4404CA0-06B2-40DD-9BAC-25A276F9F6B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capstone.Web.Integration.Tests", "Capstone.Web.Integration.Tests\Capstone.Web.Integration.Tests.csproj", "{D4404CA0-06B2-40DD-9BAC-25A276F9F6B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capstone.Web.Unit.Test", "Capstone.Web.Unit.Test\Capstone.Web.Unit.Test.csproj", "{104DC4F4-97AE-4CDA-A063-78FE6F9D5B5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D4404CA0-06B2-40DD-9BAC-25A276F9F6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4404CA0-06B2-40DD-9BAC-25A276F9F6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4404CA0-06B2-40DD-9BAC-25A276F9F6B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{104DC4F4-97AE-4CDA-A063-78FE6F9D5B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104DC4F4-97AE-4CDA-A063-78FE6F9D5B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104DC4F4-97AE-4CDA-A063-78FE6F9D5B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104DC4F4-97AE-4CDA-A063-78FE6F9D5B5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

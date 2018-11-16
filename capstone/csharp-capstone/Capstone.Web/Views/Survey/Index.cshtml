@@ -4,39 +4,55 @@
 }
 
 <form asp-controller="Survey" asp-action="SaveSurvey" method="post">
-    <div>
-        <div>
-                Favorite National Park:
-                <select asp-for="ParkCode">
-                    @{
-                        foreach (KeyValuePair<string, string> kvp in Model.ParksDictionary)
-                        {
-                            <option value="@(kvp.Key)">
-                                @(kvp.Value)
-                            </option>
-                        }
-                    }
-                </select>
-            <span asp-validation-for="ParkCode"></span>
-        </div>
-        <div>
-            <label asp-for="EmailAddress">Your email:</label>
-            <input asp-for="EmailAddress" />
-            <span asp-validation-for="EmailAddress"></span>
-        </div>
-        <div>
-            <label asp-for="State">State of residence</label>
-            <select asp-for="State" asp-items="@(Model.StateList)"></select>
-            <span asp-validation-for="State"></span>
-        </div>
-        <div>
-                Activity Level:        @Html.RadioButton("ActivityLevel", "Inactive")Inactive
-                @Html.RadioButton("ActivityLevel", "Sedentary")Sedentary
-                @Html.RadioButton("ActivityLevel", "Active")Active
-                @Html.RadioButton("ActivityLevel", "Extremely Active")Extremely Active
-            <span asp-validation-for="ActivityLevel"></span>
-        </div>
-        <button type="submit">Search</button>
+    <div class="container">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>&nbsp; Favorite National Park:  &nbsp;</strong>
+                        <select asp-for="ParkCode">
+                            @{
+                                foreach (KeyValuePair<string, string> kvp in Model.ParksDictionary)
+                                {
+                                    <option value="@(kvp.Key)">
+                                        @(kvp.Value)
+                                    </option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="ParkCode"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="EmailAddress">Your email:</label>
+                        <input asp-for="EmailAddress" />
+                        <span asp-validation-for="EmailAddress"></span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="State">State of residence:</label>
+                        <select asp-for="State" asp-items="@(Model.StateList)"></select>
+                        <span asp-validation-for="State"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Activity Level: &nbsp;</strong>
+                        @Html.RadioButton("ActivityLevel", "Inactive")Inactive &nbsp;
+                        @Html.RadioButton("ActivityLevel", "Sedentary")Sedentary  &nbsp;
+                        @Html.RadioButton("ActivityLevel", "Active")Active  &nbsp;
+                        @Html.RadioButton("ActivityLevel", "Extremely Active")Extremely Active &nbsp;
+                        <span asp-validation-for="ActivityLevel"></span>
+<td>
+                </tr>
+                <tr>
+                    <td><button class="button" type="submit">Search</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </form>
 
