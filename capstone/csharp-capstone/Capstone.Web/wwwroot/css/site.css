@@ -38,17 +38,30 @@ body {
 .button {
     border-radius: 20px;
     position: absolute;
-    left: 50%;
+    left: 20%;
     text-align: center;
     font-size: 15px;
 }
 
 .container-survey {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    /*grid-template-rows: 1fr 2fr;*/
-    /*display: flex;
-    justify-content: space-between;*/
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    margin-top: 5%;
+    padding: 5px;
+    align-content:center;
+}
+.grid-item1 {
+    padding: 20px;
+    font-size: 15px;
+    text-align: left;
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+
+.grid-item2 {
+    padding: 20px;
+    font-size: 10px;
+    text-align: center;
 }
 
 label, select {

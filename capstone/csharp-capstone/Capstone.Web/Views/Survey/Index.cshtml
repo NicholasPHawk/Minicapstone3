@@ -7,9 +7,9 @@
     <div class="container-survey">
         <table>
             <tbody>
-                <tr>
+                <tr class="grid-item1">
                     <td>
-                        <strong>&nbsp; Favorite National Park:  &nbsp;</strong>
+                        <strong>Favorite National Park:&nbsp;&nbsp;&nbsp;</strong>
                         <select asp-for="ParkCode">
                             @{
                                 foreach (KeyValuePair<string, string> kvp in Model.ParksDictionary)
@@ -23,7 +23,7 @@
                         <span asp-validation-for="ParkCode"></span>
                     </td>
                 </tr>
-                <tr>
+                <tr class="grid-item1">
                     <td>
                         <label asp-for="EmailAddress">Your email:</label>
                         <input asp-for="EmailAddress" />
@@ -31,14 +31,14 @@
                     </td>
 
                 </tr>
-                <tr>
+                <tr class="grid-item1">
                     <td>
                         <label asp-for="State">State of residence:</label>
                         <select asp-for="State" asp-items="@(Model.StateList)"></select>
                         <span asp-validation-for="State"></span>
                     </td>
                 </tr>
-                <tr>
+                <tr class="grid-item1">
                     <td>
                         <strong>Activity Level: &nbsp;</strong>
                         @Html.RadioButton("ActivityLevel", "Inactive")Inactive &nbsp;
@@ -48,7 +48,7 @@
                         <span asp-validation-for="ActivityLevel"></span>
 <td>
                 </tr>
-                <tr>
+                <tr class="grid-item2">
                     <td><button class="button" type="submit">Search</button></td>
                 </tr>
             </tbody>
